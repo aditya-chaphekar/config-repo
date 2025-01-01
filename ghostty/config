@@ -21,3 +21,11 @@ selection-background = 353749
 selection-foreground = cdd6f4
 
 font-family = "Hack Nerd Font"
+
+keybind = unconsumed:opt+l=goto_split:right
+keybind = unconsumed:opt+h=goto_split:left
+keybind = unconsumed:opt+j=goto_split:bottom
+keybind = unconsumed:opt+k=goto_split:top
+
+keybind = unconsumed:opt+shift+l=new_split:right
+keybind = unconsumed:opt+shift+h=new_split:left
