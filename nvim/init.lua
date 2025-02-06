@@ -1,5 +1,6 @@
 require("tr4cer")
-
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
@@ -30,6 +31,43 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
+		init = function()
+			require("neo-tree").setup({
+				open_on_setup = true,
+				auto_close = true,
+				update_to_buf_dir = {
+					enable = true,
+					auto_open = true,
+				},
+				view = {
+					width = 30,
+					side = "left",
+					auto_resize = true,
+				},
+				filesystem = {
+					hijack_netrw_behavior = "open_current",
+					follow_current_file = {
+						enabled = true,
+					},
+					filtered_items = {
+						visible = true,
+						show_hidden_count = true,
+						hide_dotfiles = false,
+						hide_gitignore = false,
+					},
+				},
+			})
+		end,
+	},
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	{
 		"catppuccin/nvim",

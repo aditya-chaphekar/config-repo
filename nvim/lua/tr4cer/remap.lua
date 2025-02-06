@@ -21,3 +21,10 @@ vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
+
+-- NOTE: NeoTree
+vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>n", "<CMD>Neotree focus<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>q", "<CMD>Neotree close<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>o", "<CMD>Neotree reveal<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>t", "<CMD>Neotree toggle reveal<CR>", { noremap = true, silent = true })
